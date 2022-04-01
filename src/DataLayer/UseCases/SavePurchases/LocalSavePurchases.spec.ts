@@ -1,16 +1,7 @@
-class LocalSavePurchases {
-    constructor(
-        private readonly cacheStore: ICacheStore
-    ) { }
+import ICacheStore from "@/DataLayer/Protocols/Cache";
+import LocalSavePurchases from "./LocalSavePurchases";
 
-    async save(): Promise<void> {
-        this.cacheStore.delete('purchases');
-    }
-}
 
-interface ICacheStore {
-    delete: (key: string) => void
-}
 
 class CacheStoreSpy implements ICacheStore {
     deleteCallsCount = 0;
